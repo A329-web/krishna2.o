@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nature Wonders</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0fef0;
+            color: #2f4f4f;
+        }
+
+        header {
+            background-image: url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.3em;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #2f4f4f;
+        }
+
+        .about {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            line-height: 1.6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            background-color: #2f4f4f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Nature Wonders</h1>
+        <p>Experience the beauty of the natural world</p>
+    </header>
+
+    <section>
+        <h2>🌿 Explore the Wild</h2>
+        <div class="slider-container">
+            <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
+            <div class="slides" id="slides">
+                <img src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1000"
+                    alt="Forest">
+                <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1000"
+                    alt="Mountains">
+                <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1000"
+                    alt="River">
+                <img src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1000"
+                    alt="Sunset">
+                <img src="https://images.pexels.com/photos/158607/cairn-fog-mystical-background-158607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1000"
+                    alt="Foggy Rocks">
+            </div>
+            <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
+        </div>
+        <div class="dots" id="dots"></div>
+    </section>
+
+    <section class="about">
+        <h2>🍃 About Nature</h2>
+        <p>
+            Nature is not a place to visit. It is home. From the towering mountains and deep valleys to the peaceful
+            forests and glistening rivers, the Earth is full of breathtaking beauty and life. Nature inspires calmness,
+            creativity, and appreciation for the world around us.
+        </p>
+        <p>
+            We are part of this ecosystem, and it is our responsibility to protect and preserve it. Take a deep breath,
+            listen to the sounds of the wild, and remember how interconnected all living things truly are.
+        </p>
+    </section>
+
+    <footer>
+        © 2025 Nature Wonders. All rights reserved.
+    </footer>
+
+    <script>
+        const slides = document.getElementById("slides");
+        const totalSlides = slides.children.length;
+        let currentIndex = 0;
+
+        const dotsContainer = document.getElementById("dots");
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => moveToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateDots(index) {
+            const dots = document.querySelectorAll(".dot");
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        function changeSlide(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots(currentIndex);
+        }
+
+        function moveToSlide(index) {
+            currentIndex = index;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            updateDots(index);
+        }
+
+        setInterval(() => changeSlide(1), 5000); // Auto-slide
+    </script>
+</body>
+
+</html>
