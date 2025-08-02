@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Cars | DriveZone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #2c3e50;
+        }
+
+        header {
+            background-image: url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #34495e;
+        }
+
+        .history-block {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .history-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>The Fascinating History of Cars</h1>
+        <p>From steam-powered wagons to electric supercars, discover how cars revolutionized the world.</p>
+    </header>
+
+    <section>
+        <h2>Milestones in Automotive History</h2>
+
+        <div class="history-block">
+            <h3>🚗 The First Cars (Late 1800s)</h3>
+            <p>The first true automobile was created by Karl Benz in 1886. It ran on a gasoline-powered internal
+                combustion engine and marked the beginning of the automotive age.</p>
+        </div>
+
+        <div class="history-block">
+            <h3>🏭 Mass Production (Early 1900s)</h3>
+            <p>Henry Ford revolutionized car manufacturing by introducing the moving assembly line in 1913, making cars
+                more affordable for the masses—especially the iconic Ford Model T.</p>
+        </div>
+
+        <div class="history-block">
+            <h3>🌐 Global Expansion (Mid 1900s)</h3>
+            <p>After World War II, global car brands emerged, including Volkswagen, Toyota, and Mercedes. Car design and
+                performance improved dramatically across nations.</p>
+        </div>
+
+        <div class="history-block">
+            <h3>⚡ Innovation & Technology (2000s)</h3>
+            <p>Cars became smarter, safer, and faster with advancements in GPS, fuel efficiency, and in-car
+                entertainment. Hybrids and electric vehicles like the Toyota Prius and Tesla reshaped the industry.</p>
+        </div>
+
+        <div class="history-block">
+            <h3>🚀 The Future: Autonomous & Electric</h3>
+            <p>Today, companies are pushing the boundaries with fully electric and self-driving cars. The future
+                promises a greener, safer, and smarter driving experience.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        © 2025 DriveZone | Driven by History & Innovation
+    </footer>
+
+    <script>
+        const blocks = document.querySelectorAll(".history-block");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        blocks.forEach(block => observer.observe(block));
+    </script>
+
+</body>
+
+</html>
