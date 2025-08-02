@@ -3,29 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>StayKids | Explore & Learn</title>
+    <title>Car Gallery | DriveZone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #fff8f0;
-            color: #3b3b3b;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            color: #2c3e50;
         }
 
         nav {
-            background-color: #ffb6c1;
-            color: white;
+            background-color: #1f1f1f;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav .logo {
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: bold;
-            letter-spacing: 1px;
-            color: #fff;
+            color: white;
+            text-decoration: none;
         }
 
         nav ul {
@@ -37,21 +38,21 @@
         }
 
         nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #fdfd96;
+            color: #f1c40f;
         }
 
         header {
-            background-image: url('https://images.unsplash.com/photo-1603570419879-0609bece2cd6');
+            background-image: url('https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1400');
             background-size: cover;
             background-position: center;
-            color: #fff;
+            color: white;
             padding: 100px 20px;
             text-align: center;
         }
@@ -100,7 +101,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
             color: white;
             border: none;
             padding: 10px 16px;
@@ -134,11 +135,11 @@
         }
 
         .dot.active {
-            background-color: #ffb6c1;
+            background-color: #2c3e50;
         }
 
         .about {
-            background-color: #fff0f5;
+            background-color: #ffffff;
             border-radius: 12px;
             padding: 20px;
             line-height: 1.6;
@@ -146,7 +147,7 @@
         }
 
         footer {
-            background-color: #ffb6c1;
+            background-color: #1f1f1f;
             color: white;
             text-align: center;
             padding: 20px;
@@ -158,6 +159,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
+                width: 100%;
+                margin-top: 10px;
             }
 
             header h1 {
@@ -172,31 +175,27 @@
 </head>
 
 <body>
+
     <nav>
-        <div class="logo">StayKids</div>
+        <a href="#" class="logo">DriveZone</a>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
 
-    <header>
-        <h1>Welcome to StayKids</h1>
-        <p>Discover fun, learning, and creativity for every child!</p>
-    </header>
-
     <section id="gallery">
-        <h2>🧸 Fun Moments Gallery</h2>
+        <h2>Car Gallery</h2>
         <div class="slider-container">
             <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
             <div class="slides" id="slides">
-                <img src="https://images.unsplash.com/photo-1581090700227-1b27e4a6ecb5" alt="Kid 1">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="Kid 2">
-                <img src="https://images.unsplash.com/photo-1600644971011-e6fc6e72c665" alt="Kid 3">
-                <img src="https://images.unsplash.com/photo-1503455637927-730bce8583c0" alt="Kid 4">
-                <img src="https://images.unsplash.com/photo-1585951237313-1979e4df4a9e" alt="Kid 5">
+                <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" alt="Car 1">
+                <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg" alt="Car 2">
+                <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg" alt="Car 3">
+                <img src="https://images.pexels.com/photos/248687/pexels-photo-248687.jpeg" alt="Car 4">
+                <img src="https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg" alt="Car 5">
             </div>
             <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
         </div>
@@ -204,27 +203,26 @@
     </section>
 
     <section class="about" id="about">
-        <h2>🎨 About StayKids</h2>
+        <h2>🏁 About DriveZone</h2>
         <p>
-            StayKids is a joyful and safe space for children to explore, create, and grow! Whether it’s colorful crafts,
-            engaging learning tools, or delightful stories — everything here is made with love for young minds.
+            DriveZone is your gateway to exploring the most iconic and powerful vehicles ever built. From
+            high-performance sports cars to elegant luxury sedans, our passion lies in everything on four wheels.
+            Whether you're a collector, enthusiast, or simply admire beautiful machines — we've got you covered.
         </p>
         <p>
-            Parents and teachers trust StayKids to provide age-appropriate, inspiring content that sparks imagination
-            and
-            helps build confidence in every child.
+            Our gallery showcases handpicked photographs from car photographers across the world, highlighting the
+            style, speed, and spirit of automotive engineering.
         </p>
     </section>
 
     <footer id="contact">
-        © 2025 StayKids | Bright beginnings, happy futures ✨
+        © 2025 DriveZone | Designed for car lovers worldwide
     </footer>
 
     <script>
         const slides = document.getElementById("slides");
         const totalSlides = slides.children.length;
         let currentIndex = 0;
-
         const dotsContainer = document.getElementById("dots");
 
         for (let i = 0; i < totalSlides; i++) {
@@ -233,12 +231,6 @@
             if (i === 0) dot.classList.add("active");
             dot.addEventListener("click", () => moveToSlide(i));
             dotsContainer.appendChild(dot);
-        }
-
-        function updateDots(index) {
-            const dots = document.querySelectorAll(".dot");
-            dots.forEach(dot => dot.classList.remove("active"));
-            dots[index].classList.add("active");
         }
 
         function changeSlide(direction) {
@@ -253,8 +245,15 @@
             updateDots(index);
         }
 
+        function updateDots(index) {
+            const dots = document.querySelectorAll(".dot");
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
         setInterval(() => changeSlide(1), 5000);
     </script>
+
 </body>
 
 </html>
